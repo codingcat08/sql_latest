@@ -8,6 +8,11 @@ from functools import lru_cache
 from typing import List, Dict, Any
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dotenv import load_dotenv
+
+load_dotenv()
+
+openai_api_key = os.getenv("API_KEY")
 
 class SQLColumnDescriptionGenerator:
     def __init__(self, sql_queries: str, openai_api_key: str):
