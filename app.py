@@ -2,14 +2,20 @@ from flask import Flask, request, jsonify, send_from_directory, send_file
 import os
 import script
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
 
 app = Flask(__name__, static_folder='build', static_url_path='')
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
+
 # Load OpenAI API key
-openai_api_key = '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'  # Replace this with your actual API key
+openai_api_key = api_key # Replace this with your actual API key
 
 # Placeholder for in-memory storage
 sql_queries = {}
